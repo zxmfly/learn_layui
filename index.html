@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <title>图片轮播</title>
+</head>
+<body>
+
+<div class="layui-carousel" id="test1" lay-filter="test1">
+    <div carousel-item="">
+        <div>条目1</div>
+        <div>条目2</div>
+        <div>条目3</div>
+        <div>条目4</div>
+        <div>条目5</div>
+    </div>
+</div>
+<script>
+    //一般直接写在一个js文件中
+    layui.use('carousel', function(){//加载轮播模块carousel
+        var carousel = layui.carousel;//新建一个实例：class="layui-carousel"
+        //常规轮播-建造实例
+        carousel.render({
+            elem: '#test1',//指向容器选择器，如：element: '#id'。也可以是DOM对象
+            width: '778px',
+            height: '440px',
+            interval: 3000,
+            arrow: 'always' //始终显示箭头
+        });
+    });
+</script>
+
+</body>
+</html>
