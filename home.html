@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <style type="text/css">
+        .header{width: 100%;height: 50px;line-height: 50px;background: #2E6da4;color:#fff;}
+        .title{margin-left:20px;font-size: 20px;}
+        .userinfo{float: right; margin-right: 10px;}
+        .userinfo a{color: #fff;}
+        .menu{width: 200px; height: 100%; background: #393D49;position: absolute;}/* 给个定位定在这里 */
+        .main{position: absolute;left: 200px; right: 0px;}
+        .layui-collapse{border: none;}
+        .layui-colla-item{border-top:none;}
+        .layui-colla-title{background: #42485b;color: #fff;}
+        .layui-colla-content{border-top:none;padding: 0;}
+
+    </style>
+    <script>
+        //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
+        //注意：弹窗 依赖 layer 模块，否则无法进行功能性操作
+        layui.use(['element', 'layer'], function(){
+            var element = layui.element;
+            var layer =layui.layer; //实例化模块
+        });
+        //eg1
+        function logout() {
+            layer.confirm('确定要退出么?', {
+                icon: 3,
+                btn: ['确定', '取消'] //可以无限个按钮
+            }, function(index, layero){
+                //按钮【按钮一】的回调
+            }, function(index){
+                //按钮【按钮二】的回调
+            });
+        }
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    </script>
+</head>
+<body>
+    <!--header-->
+    <div class="header">
+        <span class="title">JD商城--后台管理系统</span>
+        <span class="userinfo">admin [系统管理员] <span><a href="javascript:;" onclick="logout();">退出</a></span> </span>
+    </div>
+    <!--menu-->
+    <div class="menu" id="menu">
+        <div class="layui-collapse">
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">管理员管理</h2>
+                <div class="layui-colla-content layui-show">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item"><a href="javascript:;">管理员列表</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">权限设置</h2>
+                <div class="layui-colla-content ">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:;">默认展开</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">系统设置</h2>
+                <div class="layui-colla-content ">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:;">默认展开</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">商品分类</h2>
+                <div class="layui-colla-content ">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:;">默认展开</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">产品管理</h2>
+                <div class="layui-colla-content ">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:;">默认展开</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">幻灯片管理</h2>
+                <div class="layui-colla-content ">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:;">默认展开</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">系统设置</h2>
+                <div class="layui-colla-content ">
+                    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:;">默认展开</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--main 内联框架-->
+    <div class="main">
+        <iframe src="admin.html" style="width: 100%; height: 100%;" scrolling="0" frameborder="0"></iframe>
+    </div>
+</body>
+</html>

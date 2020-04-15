@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <title>管理员列表</title>
+    <style type="text/css">
+        body{padding: 10px;}
+        .header span{background: #009688; color: #fff; padding: 10px; margin-left: 30px; line-height: 32px;}
+        .header button{float: right;}
+        .header{border-bottom: 2px #009688 solid; }
+    </style>
+    <script>
+        //注意：弹窗 依赖 layer 模块，否则无法进行功能性操作
+        layui.use(['layer'], function(){
+            var layer =layui.layer; //实例化模块
+        });
+        //eg1
+        function del() {
+            layer.confirm('确定要删除么?', {
+                icon: 3,
+                btn: ['确定', '取消'] //可以无限个按钮
+            }, function(index, layero){
+                //按钮【按钮一】的回调
+            }, function(index){
+                //按钮【按钮二】的回调
+            });
+        }
+        function add(){
+            layer.open({
+                type: 2,
+                title: '添加管理员',
+                area: ['460px', '380px'],
+                content: 'add.html' //这里content是一个普通的String
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <span>管理员列表</span>
+        <button type="button" class="layui-btn layui-btn-sm" onclick="add();">添加</button>
+    </div>
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th >ID</th>
+                <th >用户名</th>
+                <th >性别</th>
+                <th >城市</th>
+                <th >签名</th>
+                <th >积分</th>
+                <th >职业</th>
+                <th >操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>贤心</td>
+            <td>汉族</td>
+            <td>1989-10-14</td>
+            <td>人生似修行</td>
+            <td>贤心</td>
+            <td>汉族</td>
+            <td>1989-10-14</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger" onclick="del();">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td>张爱玲</td>
+            <td>汉族</td>
+            <td>1920-09-30</td>
+            <td>于千万人之中</td>
+            <td>张爱玲</td>
+            <td>汉族</td>
+            <td>1920-09-30</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger" onclick="del();">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Helen Keller</td>
+            <td>拉丁美裔</td>
+            <td>1880-06-27</td>
+            <td> Life is </td>
+            <td>张爱玲</td>
+            <td>汉族</td>
+            <td>1920-09-30</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger" onclick="del();">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td>岳飞</td>
+            <td>汉族</td>
+            <td>1103-北宋崇宁二年</td>
+            <td>教科书再滥改</td>
+            <td>张爱玲</td>
+            <td>汉族</td>
+            <td>1920-09-30</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger" onclick="del();">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td>孟子</td>
+            <td>华夏族（汉族）</td>
+            <td>公元前-372年</td>
+            <td>猿强，则国强</td>
+            <td>张爱玲</td>
+            <td>汉族</td>
+            <td>1920-09-30</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger" onclick="del();">删除</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
